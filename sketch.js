@@ -15,3 +15,5 @@ function setup() {
   //I have shifted almost all of the data on google docs into sheets so it is easier to utilize when coding.
   //https://docs.google.com/spreadsheets/d/1bEYa_xUSEbtfwZd3KwkP4Wppt_zLWmmLdMczmKg7X2o/edit?usp=sharing
   //this is my second day
+
+  ///I shifted all the data onto the google sheets. I also outlined my specific plan and questions. I could address those with you tomorrow in class. 
