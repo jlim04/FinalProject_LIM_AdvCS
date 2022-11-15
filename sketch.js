@@ -43,3 +43,6 @@ function setup() {
   //placeholders for potential decoration
   //toasts for the introduction
   //will do further research on this tomorrow
+
+  //https://docs.google.com/document/d/1rm1MFeSm5X7rzaDxcykFrEfHo42_psByxt7qca1mVqo/edit 
+  //put new research, notes down on this document. I also looked around searching about the html concept on the internet for a bit. 
