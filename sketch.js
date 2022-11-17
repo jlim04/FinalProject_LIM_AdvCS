@@ -26,6 +26,9 @@ function setup() {
     }
   }
 
+let colleges = [];
+
+
  
 
   //https://docs.google.com/document/d/1rm1MFeSm5X7rzaDxcykFrEfHo42_psByxt7qca1mVqo/edit
@@ -46,3 +49,10 @@ function setup() {
 
   //https://docs.google.com/document/d/1rm1MFeSm5X7rzaDxcykFrEfHo42_psByxt7qca1mVqo/edit 
   //put new research, notes down on this document. I also looked around searching about the html concept on the internet for a bit. 
+
+
+  //basically, created a really basic college class but not sure i successfully created.
+  //also spend around 30 min watching css and html videos on youtube
+  //https://www.youtube.com/watch?v=1PnVor36_40
+  //https://www.youtube.com/watch?v=salY_Sm6mv4
+  
