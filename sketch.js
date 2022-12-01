@@ -56,3 +56,13 @@ let colleges = [];
   //https://www.youtube.com/watch?v=1PnVor36_40
   //https://www.youtube.com/watch?v=salY_Sm6mv4
   
+
+
+  //Edited the html for the survey page
+  //wrote some messages for each page... need to transfer onto the html files and create more
+  //I currently have the index & survey html
+  //For the about page... Title: About our service Description: College Finder selects a list of college that matches our customer's preference based on a survey. We currently have 101 Top US colleges that have a SAT Range of 1350-1600 in our database.
+  //Result Page should be directly connected to the survey page like a slideshow or automatically transitioning. 
+  //Final Page... Title: What should you take away from your list? Description: When selecting your list of colleges, it is incredibably crucial to consider the criteria listed in our service. On top of this, we recommend talking to alumni or admissions officers to get a bigger picture of each school. Remember to select a balanced list of safety, target, and reach schools!
+  //https://getbootstrap.com/docs/5.2/forms/checks-radios/ will use this for survey probably
+    
