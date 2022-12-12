@@ -1,5 +1,6 @@
 let table;
 let checkboxes = [];
+let button;
 
 function preload() {
   //my table is comma separated value "csv"
@@ -74,6 +75,11 @@ function preload() {
   checkboxes[15].changed(() => myCheckedEvent(15));
 
 
+  button = createButton('submit');
+  button.position(0,0);
+  button.mousePressed(submit);
+
+
 } 
 
 
@@ -86,17 +92,22 @@ function myCheckedEvent(id) {
   }
 }
 
+function submit() {
+  console.log('hi');
+
+
+}
 function setup() {
     //createCanvas(400, 400);
-    print(table.getRowCount() + ' total rows in table');
-    print(table.getColumnCount() + ' total columns in table');
-    print(table.getColumn('name'));
+    // print(table.getRowCount() + ' total rows in table');
+    // print(table.getColumnCount() + ' total columns in table');
+    // print(table.getColumn('name'));
     // print(table.getString(0, 0));
    
-    for (let r = 0; r < table.getRowCount(); r++)
-      for (let c = 0; c < table.getColumnCount(); c++) {
-        print(table.getString(r, c));
-      }
+    // for (let r = 0; r < table.getRowCount(); r++)
+    //   for (let c = 0; c < table.getColumnCount(); c++) {
+    //     //print(table.getString(r, c));
+    //   }
   }
   
   function draw() {
