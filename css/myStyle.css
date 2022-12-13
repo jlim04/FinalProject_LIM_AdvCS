@@ -8,10 +8,11 @@ html, body {
   
 
   #home {
-    background: url("https://dummyimage.com/1920x1080/dee2e6/6c757d.jpg") no-repeat center center fixed;
-    background-size: cover;  
+    /* background: url("https://dummyimage.com/1920x1080/dee2e6/6c757d.jpg") no-repeat center center fixed;
+    background-size: cover;  */
+    background: white; 
   }
 
-  #mainimage {
-    width:200px;
-  }
+  .mainimage {
+    width:60%;
+  } 

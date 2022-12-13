@@ -94,9 +94,16 @@ function myCheckedEvent(id) {
 
 function submit() {
   console.log('hi');
-
-
+  // for () 
+  checkColleges();
 }
+
+function checkColleges() {
+  // for loop to go through every college
+  // nested for looop - another one to check all of your checkboxes
+  // if a college meets all the checklist items, add it to a new array
+}
+
 function setup() {
     //createCanvas(400, 400);
     // print(table.getRowCount() + ' total rows in table');
