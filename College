@@ -1,6 +1,7 @@
 class College {
-    constructor (name,location, greekLife, religion, public, studentGovernment, footballTeam, techEngineeringSchool) {
+    constructor (name, size, location, greekLife, religion, public, studentGovernment, footballTeam, techEngineeringSchool) {
         this.name=name;
+        this.size=size;
         this.location=location;
         this.greekLife=greekLife;
         this.religion=religion;

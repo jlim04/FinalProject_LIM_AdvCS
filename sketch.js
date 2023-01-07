@@ -1,6 +1,9 @@
 let table;
 let checkboxes = [];
 let button;
+let colleges = [];
+let LiberalArtsColleges = [];
+
 
 function preload() {
   //my table is comma separated value "csv"
@@ -76,7 +79,9 @@ function preload() {
 
 
   button = createButton('submit');
-  button.position(0,0);
+  // button.id("test")
+  button.parent("submitButton");
+  // button.position(0,0);
   button.mousePressed(submit);
 
 
@@ -96,12 +101,23 @@ function submit() {
   console.log('hi');
   // for () 
   checkColleges();
+  document.getElementById("survey").style.display= "none";
+  document.getElementById("surveyTitle").innerHTML = "Survey Results:"
+  // let h1 = createElement('h1', 'im an h1 p5.element!');
+  // h1.parent("survey");
 }
 
 function checkColleges() {
-  // for loop to go through every college
-  // nested for looop - another one to check all of your checkboxes
-  // if a college meets all the checklist items, add it to a new array
+  for (let i=1; i<table.getRowCount(); i++) {
+    let size = "";
+    if (table.getString(i, 1) == "Yes") {
+      size = "small;"
+    } else if () {
+    
+    }
+    let name = table.getString(i, 0);
+    colleges.push(new College(name, size, ...))
+  }
 }
 
 function setup() {
@@ -111,10 +127,10 @@ function setup() {
     // print(table.getColumn('name'));
     // print(table.getString(0, 0));
    
-    // for (let r = 0; r < table.getRowCount(); r++)
-    //   for (let c = 0; c < table.getColumnCount(); c++) {
-    //     //print(table.getString(r, c));
-    //   }
+    for (let r = 0; r < table.getRowCount(); r++)
+      for (let c = 0; c < table.getColumnCount(); c++) {
+        //print(table.getString(r, c));
+      }
   }
   
   function draw() {
