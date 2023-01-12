@@ -1,7 +1,7 @@
 class College {
-    constructor (name, size, location, greekLife, religion, public, studentGovernment, footballTeam, techEngineeringSchool) {
+    constructor (name, sz, location, greekLife, religion, public, studentGovernment, footballTeam, techEngineeringSchool) {
         this.name=name;
-        this.size=size;
+        this.sz=sz;
         this.location=location;
         this.greekLife=greekLife;
         this.religion=religion;
@@ -10,6 +10,8 @@ class College {
         this.footballTeam=footballTeam; 
         this.techEngineeringSchool=techEngineeringSchool;
     }
+
+}
 
 
 

@@ -6,8 +6,7 @@ let LiberalArtsColleges = [];
 
 
 function preload() {
-  //my table is comma separated value "csv"
-  //and has a header specifying the columns labels
+
   table = loadTable('data.csv', 'csv', 'header');
 
   checkboxes[0] = createCheckbox('Small(5000>)', false);
@@ -79,9 +78,9 @@ function preload() {
 
 
   button = createButton('submit');
-  // button.id("test")
+
   button.parent("submitButton");
-  // button.position(0,0);
+ 
   button.mousePressed(submit);
 
 
@@ -99,86 +98,127 @@ function myCheckedEvent(id) {
 
 function submit() {
   console.log('hi');
-  // for () 
+  
   checkColleges();
   document.getElementById("survey").style.display= "none";
-  document.getElementById("surveyTitle").innerHTML = "Survey Results:"
-  // let h1 = createElement('h1', 'im an h1 p5.element!');
-  // h1.parent("survey");
+  document.getElementById("surveyTitle").innerHTML = "Survey Results:";
+
+}
+ 
+function checkColleges() {
+  // let boxeschecked 
+  let filteredColleges = [];
+  
+  for (let college of colleges) {
+    if(collegeIncluded(c))==
+     //push
+    // for (let j=0; j<checkboxes.length(); j++) {
+    //   if (checkboxes[j].checked()==true){
+    //   for(let i = 1; i< college.length; i++){
+        
+    //     if(getCheckboxName(j) == college[i]){
+    //       boxeschecked ++
+    //     }
+    //     if(boxeschecked == college.length-1){
+    //       filteredColleges.push(college)
+        } 
+      } 
+    } 
+   
+    }
+  }
 }
 
-function checkColleges() {
-  for (let i=1; i<table.getRowCount(); i++) {
-    let size = "";
-    if (table.getString(i, 1) == "Yes") {
-      size = "small;"
-    } else if () {
+
+
+function collegeIncluded(college) {
+  for(const property in college) {
+    if (property=="name")
+      continue;
+    let getCheckboxID(property)=value
+    if(!checkboxes[value].checked()
+    return false
+
+
     
-    }
-    let name = table.getString(i, 0);
-    colleges.push(new College(name, size, ...))
+     
   }
+  return true
+}
+
+function getCheckboxID(label) {
+  if (label=="small") {
+    return 0
+  }
+  
+  }
+}
+
+function createColleges() {
+  for (let i=1; i<table.getRowCount(); i++) {
+    let sz = "";
+    let location = "";
+    let studentGovernment = "";
+    let greekLife = "";
+    let footballTeam = "";
+
+    if (table.getString(i, 1) == "Yes") {
+      sz = "small;"
+    } else if (table.getString(i,2) == "Yes") {
+      sz = "medium;"
+    } else if (table.getString(i,3) == "Yes") {
+      sz = "large;"
+    }
+    
+    if (table.getString(i,4) == "Yes") {
+      location = "city;"
+    } else if (table.getString(i,5) == "Yes") {
+      location = "surburban;"
+    } else if (table.getString(i,6) == "Yes") {
+      location = "town;"
+    } else if (table.getString(i,7) == "Yes") {
+      location = "rural;"
+    }
+    if (table.getString(i,8) == "Yes") {
+      greekLife = "greekLife;"
+    }
+
+    if (table.getString(i,9) == "Yes") {
+      religion = "catholic;"
+    } else if (table.getString(i,10) == "Yes") {
+      religion = "methodist;"
+    } else if (table.getString(i,11) == "Yes") {
+      religion = "presbyterian;"
+    } else if (table.getString(i,12) == "Yes") {
+      religion = "jewish;"
+    }
+    
+    if (table.getString(i,13) == "Yes") {
+      studentGovernment = "studentGovernment;"
+    }
+    if (table.getString(i,14) == "Yes") {
+      footballTeam = "footballTeam;"
+    }
+    if (table.getString(i,15) == "Yes") {
+      techEngineeringSchool = "techEngineeringSchool;"
+    }
+
+    let name = table.getString(i, 0);
+    if (table.getString(i,16) == "Yes") {
+      colleges.push(new LiberalArtsCollege(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
+    } else {
+      colleges.push(new College(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
+    }
+  }
+    
+  
 }
 
 function setup() {
-    //createCanvas(400, 400);
-    // print(table.getRowCount() + ' total rows in table');
-    // print(table.getColumnCount() + ' total columns in table');
-    // print(table.getColumn('name'));
-    // print(table.getString(0, 0));
-   
-    for (let r = 0; r < table.getRowCount(); r++)
-      for (let c = 0; c < table.getColumnCount(); c++) {
-        //print(table.getString(r, c));
-      }
-  }
-  
-  function draw() {
-    //background(255, 0, 50);
-    for(let i = 0; i < 10; i++){
-      // ...
-    }
-  }
-
-let colleges = [];
+  createColleges();
+}
 
 
- 
-
-  //https://docs.google.com/document/d/1rm1MFeSm5X7rzaDxcykFrEfHo42_psByxt7qca1mVqo/edit
-  //Right now, I'm using google docs to think of all the categories, sort of as a brainstorm. I have saved it with you.
-
-  //I have shifted almost all of the data on google docs into sheets so it is easier to utilize when coding.
-  //https://docs.google.com/spreadsheets/d/1bEYa_xUSEbtfwZd3KwkP4Wppt_zLWmmLdMczmKg7X2o/edit?usp=sharing
-  //this is my second day
-
-  ///I shifted all the data onto the google sheets. I also outlined my specific plan and questions. I could address those with you tomorrow in class. 
-
-  //looked into the html concept as well as bootstrap and every single component in it. 
-  //found a few features I would like to use: Dropdown, I could conduct the survey through multiple dropdowns
-  //Navbar for extra information(don't think it is crucial though)
-  //placeholders for potential decoration
-  //toasts for the introduction
-  //will do further research on this tomorrow
-
-  //https://docs.google.com/document/d/1rm1MFeSm5X7rzaDxcykFrEfHo42_psByxt7qca1mVqo/edit 
-  //put new research, notes down on this document. I also looked around searching about the html concept on the internet for a bit. 
-
-
-  //basically, created a really basic college class but not sure i successfully created.
-  //also spend around 30 min watching css and html videos on youtube
-  //https://www.youtube.com/watch?v=1PnVor36_40
-  //https://www.youtube.com/watch?v=salY_Sm6mv4
   
 
 
-  //Edited the html for the survey page
-  //wrote some messages for each page... need to transfer onto the html files and create more
-  //I currently have the index & survey html
-  //For the about page... Title: About our service Description: College Finder selects a list of college that matches our customer's preference based on a survey. We currently have 101 Top US colleges that have a SAT Range of 1350-1600 in our database.
-  //Result Page should be directly connected to the survey page like a slideshow or automatically transitioning. 
-  //Final Page... Title: What should you take away from your list? Description: When selecting your list of colleges, it is incredibably crucial to consider the criteria listed in our service. On top of this, we recommend talking to alumni or admissions officers to get a bigger picture of each school. Remember to select a balanced list of safety, target, and reach schools!
-  //https://getbootstrap.com/docs/5.2/forms/checks-radios/ will use this for survey probably
-  
-
-  //create canvas
