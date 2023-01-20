@@ -11,12 +11,12 @@ function preload() {
 
   checkboxes[0] = createCheckbox('Small(5000>)', false);
   checkboxes[0].parent("size");
-  checkboxes[0].changed(()=> myCheckedEvent(0));
+  checkboxes[0].changed(() => myCheckedEvent(0));
 
   checkboxes[1] = createCheckbox('Medium(5000-10000)', false);
   checkboxes[1].parent("size");
   checkboxes[1].changed(() => myCheckedEvent(1));
-  
+
   checkboxes[2] = createCheckbox('Large(10000<)', false);
   checkboxes[2].parent("size");
   checkboxes[2].changed(() => myCheckedEvent(2));
@@ -42,49 +42,73 @@ function preload() {
   checkboxes[7].parent("greeklife");
   checkboxes[7].changed(() => myCheckedEvent(7));
 
-  checkboxes[8] = createCheckbox('Catholic', false);
-  checkboxes[8].parent("religion");
-  checkboxes[8].changed(() => myCheckedEvent(8));
+  let num = 8;
+  checkboxes[num] = createCheckbox('No Greek Life', false);
+  checkboxes[num].parent("greeklife");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
-  checkboxes[9] = createCheckbox('Methodist', false);
-  checkboxes[9].parent("religion");
-  checkboxes[9].changed(() => myCheckedEvent(9));
+  checkboxes[num] = createCheckbox('Catholic', false);
+  checkboxes[num].parent("religion");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
-  checkboxes[10] = createCheckbox('Presbyterian', false);
-  checkboxes[10].parent("religion");
-  checkboxes[10].changed(() => myCheckedEvent(10));
+  checkboxes[num] = createCheckbox('Methodist', false);
+  checkboxes[num].parent("religion");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
+
+  checkboxes[num] = createCheckbox('Presbyterian', false);
+  checkboxes[num].parent("religion");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
 
-  checkboxes[11] = createCheckbox('Jewish', false);
-  checkboxes[11].parent("religion");
-  checkboxes[11].changed(() => myCheckedEvent(11));
+  checkboxes[num] = createCheckbox('Jewish', false);
+  checkboxes[num].parent("religion");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
+
+  checkboxes[num] = createCheckbox('none', false);
+  checkboxes[num].parent("religion");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
 
-  checkboxes[12] = createCheckbox('Public', false);
-  checkboxes[12].parent("public");
-  checkboxes[12].changed(() => myCheckedEvent(12));
+  checkboxes[num] = createCheckbox('Public', false);
+  checkboxes[num].parent("public");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
-  checkboxes[13] = createCheckbox('Has Student Government', false);
-  checkboxes[13].parent("etc");
-  checkboxes[13].changed(() => myCheckedEvent(13));
+  checkboxes[num] = createCheckbox('Private', false);
+  checkboxes[num].parent("public");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
-  checkboxes[14] = createCheckbox('Has a Football Team', false);
-  checkboxes[14].parent("etc");
-  checkboxes[14].changed(() => myCheckedEvent(14));
+  checkboxes[num] = createCheckbox('Has Student Government', false);
+  checkboxes[num].parent("etc");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
-  checkboxes[15] = createCheckbox('Tech/Engineering School', false);
-  checkboxes[15].parent("etc");
-  checkboxes[15].changed(() => myCheckedEvent(15));
+  checkboxes[num] = createCheckbox('Has a Football Team', false);
+  checkboxes[num].parent("etc");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
+
+  checkboxes[num] = createCheckbox('Tech/Engineering School', false);
+  checkboxes[num].parent("etc");
+  checkboxes[num].changed(() => myCheckedEvent(num));
+  num++;
 
 
   button = createButton('submit');
 
   button.parent("submitButton");
- 
+
   button.mousePressed(submit);
 
 
-} 
+}
 
 
 
@@ -98,64 +122,122 @@ function myCheckedEvent(id) {
 
 function submit() {
   console.log('hi');
-  
+
   checkColleges();
-  document.getElementById("survey").style.display= "none";
+  document.getElementById("survey").style.display = "none";
   document.getElementById("surveyTitle").innerHTML = "Survey Results:";
 
 }
- 
+
 function checkColleges() {
-  // let boxeschecked 
+
   let filteredColleges = [];
-  
-  for (let college of colleges) {
-    if(collegeIncluded(c))==
-     //push
-    // for (let j=0; j<checkboxes.length(); j++) {
-    //   if (checkboxes[j].checked()==true){
-    //   for(let i = 1; i< college.length; i++){
-        
-    //     if(getCheckboxName(j) == college[i]){
-    //       boxeschecked ++
-    //     }
-    //     if(boxeschecked == college.length-1){
-    //       filteredColleges.push(college)
-        } 
-      } 
-    } 
-   
+  for (let c of colleges) {
+    if (collegeIncluded(c)) {
+      filteredColleges.push(c);
     }
   }
+  console.log("filtered", filteredColleges)
+  document.getElementById("results").innerHTML = JSON.stringify(filteredColleges);
 }
-
 
 
 function collegeIncluded(college) {
-  for(const property in college) {
-    if (property=="name")
+  let properties = ["sz", "location"];
+  for (const property in college) {
+
+    if (properties.indexOf(property) == -1) {
       continue;
-    let getCheckboxID(property)=value
-    if(!checkboxes[value].checked()
-    return false
+    }
+   if (property == "name")c
+      continue;
 
 
-    
-     
+    let value = getCheckboxID(college[property])
+    if (property == "location") {
+      console.log(value, )
+    }
+    if (!checkboxes[value].checked()) {
+      console.log(college.name, property, college[property], value);
+      return false;
+
+    }
+
+
   }
-  return true
+  return true;
 }
 
 function getCheckboxID(label) {
-  if (label=="small") {
-    return 0
+  if (label == "small") {
+    return 0;
   }
-  
+
+  if (label == "medium") {
+    return 1;
   }
+
+  if (label == "large") {
+    return 2;
+  }
+
+  if (label == "city") {
+    return 3;
+  }
+
+  if (label == "suburban") {
+    return 4;
+  }
+
+  if (label == "town") {
+    return 5;
+  }
+
+  if (label == "rural") {
+    return 6;
+  }
+
+  if (label == "greekLife") {
+    return 7;
+  }
+
+  if (label == "catholic") {
+    return 8;
+  }
+
+  if (label == "methodist") {
+    return 9;
+  }
+
+  if (label == "presbyterian") {
+    return 10;
+  }
+
+  if (label == "jewish") {
+    return 11;
+  }
+
+  if (label == "public") {
+    return 12;
+  }
+
+
+  if (label == "studentGovernment") {
+    return 13;
+  }
+
+  if (label == "footballTeam") {
+    return 14;
+  }
+
+  if (label == "techEngineeringSchool") {
+    return 15;
+  }
+  return 0;
 }
 
 function createColleges() {
-  for (let i=1; i<table.getRowCount(); i++) {
+  for (let i = 1; i < table.getRowCount(); i++) {
     let sz = "";
     let location = "";
     let studentGovernment = "";
@@ -163,55 +245,57 @@ function createColleges() {
     let footballTeam = "";
 
     if (table.getString(i, 1) == "Yes") {
-      sz = "small;"
-    } else if (table.getString(i,2) == "Yes") {
-      sz = "medium;"
-    } else if (table.getString(i,3) == "Yes") {
-      sz = "large;"
-    }
-    
-    if (table.getString(i,4) == "Yes") {
-      location = "city;"
-    } else if (table.getString(i,5) == "Yes") {
-      location = "surburban;"
-    } else if (table.getString(i,6) == "Yes") {
-      location = "town;"
-    } else if (table.getString(i,7) == "Yes") {
-      location = "rural;"
-    }
-    if (table.getString(i,8) == "Yes") {
-      greekLife = "greekLife;"
+      sz = "small"
+    } else if (table.getString(i, 2) == "Yes") {
+      sz = "medium"
+    } else if (table.getString(i, 3) == "Yes") {
+      sz = "large"
     }
 
-    if (table.getString(i,9) == "Yes") {
-      religion = "catholic;"
-    } else if (table.getString(i,10) == "Yes") {
-      religion = "methodist;"
-    } else if (table.getString(i,11) == "Yes") {
-      religion = "presbyterian;"
-    } else if (table.getString(i,12) == "Yes") {
-      religion = "jewish;"
+    if (table.getString(i, 4) == "Yes") {
+      location = "city"
+    } else if (table.getString(i, 5) == "Yes") {
+      location = "surburban"
+    } else if (table.getString(i, 6) == "Yes") {
+      location = "town"
+    } else if (table.getString(i, 7) == "Yes") {
+      location = "rural"
     }
-    
-    if (table.getString(i,13) == "Yes") {
-      studentGovernment = "studentGovernment;"
+    if (table.getString(i, 8) == "Yes") {
+      greekLife = "greekLife"
+    }else {
+      greekLife = "noGreekLife";
     }
-    if (table.getString(i,14) == "Yes") {
-      footballTeam = "footballTeam;"
+
+    if (table.getString(i, 9) == "Yes") {
+      religion = "catholic"
+    } else if (table.getString(i, 10) == "Yes") {
+      religion = "methodist"
+    } else if (table.getString(i, 11) == "Yes") {
+      religion = "presbyterian"
+    } else if (table.getString(i, 12) == "Yes") {
+      religion = "jewish"
+    } else {
+      religion= "noReligion";
     }
-    if (table.getString(i,15) == "Yes") {
-      techEngineeringSchool = "techEngineeringSchool;"
+
+    if (table.getString(i, 13) == "Yes") {
+      studentGovernment = "studentGovernment"
+    }
+    if (table.getString(i, 14) == "Yes") {
+      footballTeam = "footballTeam"
+    }
+    if (table.getString(i, 15) == "Yes") {
+      techEngineeringSchool = "techEngineeringSchool"
     }
 
     let name = table.getString(i, 0);
-    if (table.getString(i,16) == "Yes") {
+    if (table.getString(i, 16) == "Yes") {
       colleges.push(new LiberalArtsCollege(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
     } else {
       colleges.push(new College(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
     }
   }
-    
-  
 }
 
 function setup() {
@@ -219,6 +303,6 @@ function setup() {
 }
 
 
-  
+
 
 
