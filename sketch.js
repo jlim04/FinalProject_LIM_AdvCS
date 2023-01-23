@@ -106,8 +106,6 @@ function preload() {
 
   button.mousePressed(submit);
 
-
-
 }
 
 
@@ -158,7 +156,7 @@ function checkColleges() {
 
   }
 
-  for (let i = 0; i<filteredColleges.length; i++) {
+  for (let i = 0; i<filteredLiberalArtsColleges.length; i++) {
     resultList2 += filteredLiberalArtsColleges[i] + "\n";
 
   }
@@ -225,41 +223,41 @@ function getCheckboxID(label) {
     return 6;
   }
 
-  if (label == "greekLife") {
-    return 7;
-  }
+  // if (label == "greekLife") {
+  //   return 7;
+  // }
 
-  if (label == "catholic") {
-    return 8;
-  }
+  // if (label == "catholic") {
+  //   return 8;
+  // }
 
-  if (label == "methodist") {
-    return 9;
-  }
+  // if (label == "methodist") {
+  //   return 9;
+  // }
 
-  if (label == "presbyterian") {
-    return 10;
-  }
+  // if (label == "presbyterian") {
+  //   return 10;
+  // }
 
-  if (label == "jewish") {
-    return 11;
-  }
+  // if (label == "jewish") {
+  //   return 11;
+  // }
 
-  if (label == "public") {
-    return 12;
-  }
+  // if (label == "public") {
+  //   return 12;
+  // }
 
-  if (label == "studentGovernment") {
-    return 13;
-  }
+  // if (label == "studentGovernment") {
+  //   return 13;
+  // }
 
-  if (label == "footballTeam") {
-    return 14;
-  }
+  // if (label == "footballTeam") {
+  //   return 14;
+  // }
 
-  if (label == "techEngineeringSchool") {
-    return 15;
-  }
+  // if (label == "techEngineeringSchool") {
+  //   return 15;
+  // }
   return 0;
 }
 
@@ -272,53 +270,53 @@ function createColleges() {
     let footballTeam = "";
 
     if (table.getString(i, 1) == "Yes") {
-      sz = "small"
+      sz = "small";
     } else if (table.getString(i, 2) == "Yes") {
-      sz = "medium"
+      sz = "medium";
     } else if (table.getString(i, 3) == "Yes") {
-      sz = "large"
+      sz = "large";
     }
 
     if (table.getString(i, 4) == "Yes") {
-      location = "city"
+      location = "city";
     } else if (table.getString(i, 5) == "Yes") {
-      location = "suburban"
+      location = "suburban";
     } else if (table.getString(i, 6) == "Yes") {
-      location = "town"
+      location = "town";
     } else if (table.getString(i, 7) == "Yes") {
-      location = "rural"
+      location = "rural";
     }
     if (table.getString(i, 8) == "Yes") {
-      greekLife = "greekLife"
+      greekLife = "greekLife";
     }else {
       greekLife = "noGreekLife";
     }
 
     if (table.getString(i, 9) == "Yes") {
-      religion = "catholic"
+      religion = "catholic";
     } else if (table.getString(i, 10) == "Yes") {
-      religion = "methodist"
+      religion = "methodist";
     } else if (table.getString(i, 11) == "Yes") {
-      religion = "presbyterian"
+      religion = "presbyterian";
     } else if (table.getString(i, 12) == "Yes") {
-      religion = "jewish"
+      religion = "jewish";
     } else {
       religion= "noReligion";
     }
 
     if (table.getString(i, 13) == "Yes") {
-      studentGovernment = "studentGovernment"
+      studentGovernment = "studentGovernment";
     }
     if (table.getString(i, 14) == "Yes") {
-      footballTeam = "footballTeam"
+      footballTeam = "footballTeam";
     }
     if (table.getString(i, 15) == "Yes") {
-      techEngineeringSchool = "techEngineeringSchool"
+      techEngineeringSchool = "techEngineeringSchool";
     }
 
     let name = table.getString(i, 0);
-    if (table.getString(i, 16) == "Yes") {
-      colleges.push(new LiberalArtsCollege(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
+    if (table.getString(i, 17) == "Yes") {
+      LiberalArtsColleges.push(new LiberalArtsCollege(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
     } else {
       colleges.push(new College(name, sz, location, greekLife, religion, studentGovernment, footballTeam, techEngineeringSchool));
     }
