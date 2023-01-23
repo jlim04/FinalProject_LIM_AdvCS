@@ -24,3 +24,12 @@ html, body {
   .aboutimage {
     width:40%;
   }
+
+  #allResults {
+    display: none;
+  }
+
+
+ #allResults div {
+  white-space: pre-wrap;
+ }
